@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --background: #08111F;
+  --foreground: #F1F5F9;
+  --card: #0D1726;
+  --muted: #94A3B8;
+  --accent: #2DD4BF;
+  --accent-secondary: #A78BFA;
+  --border: #1E293B;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fadeUp 0.7s ease-out 0.1s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fadeUp 0.7s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fadeUp 0.7s ease-out 0.3s both;
+}
+
+.animate-fade-up-delay-4 {
+  animation: fadeUp 0.7s ease-out 0.4s both;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-1 {
+  animation: cardReveal 0.6s ease-out 0.5s both;
+}
+
+.animate-card-2 {
+  animation: cardReveal 0.6s ease-out 0.6s both;
+}
+
+.animate-card-3 {
+  animation: cardReveal 0.6s ease-out 0.7s both;
+}
+
+.animate-card-4 {
+  animation: cardReveal 0.6s ease-out 0.8s both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fadeUp 0.7s ease-out 0.1s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fadeUp 0.7s ease-out 0.2s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fadeUp 0.7s ease-out 0.3s both;
+}
+
+.animate-fade-up-delay-4 {
+  animation: fadeUp 0.7s ease-out 0.4s both;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-1 {
+  animation: cardReveal 0.6s ease-out 0.5s both;
+}
+
+.animate-card-2 {
+  animation: cardReveal 0.6s ease-out 0.6s both;
+}
+
+.animate-card-3 {
+  animation: cardReveal 0.6s ease-out 0.7s both;
+}
+
+.animate-card-4 {
+  animation: cardReveal 0.6s ease-out 0.8s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-up-delay-1,
+  .animate-fade-up-delay-2,
+  .animate-fade-up-delay-3,
+  .animate-fade-up-delay-4,
+  .animate-card-1,
+  .animate-card-2,
+  .animate-card-3,
+  .animate-card-4 {
+    animation: none;
+  }
+}
