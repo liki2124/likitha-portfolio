@@ -1,4 +1,4 @@
-import { contact } from "../Data/contact";
+import { contact } from "../data/contact";
 
 export default function Contact() {
   return (

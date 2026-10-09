@@ -1,4 +1,4 @@
-import { highlights } from "../Data/highlights";
+import { highlights } from "../data/highlights";
 
 export default function Highlights() {
   return (

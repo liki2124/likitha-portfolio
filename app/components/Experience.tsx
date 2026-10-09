@@ -1,7 +1,7 @@
 import {
   professionalExperience,
   volunteerExperience,
-} from "../Data/experience";
+} from "../data/experience";
 
 type Experience = {
   company: string;

@@ -1,4 +1,4 @@
-import { hero } from "../Data/hero";
+import { hero } from "../data/hero";
 
 export default function Hero() {
   return (
