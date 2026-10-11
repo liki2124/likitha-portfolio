@@ -1,13 +1,44 @@
+
+"use client";
+
+import { useState } from "react";
 import { projects } from "../data/projects";
 
+const retailScreenshots = [
+  {
+    src: "/images/retail-inventory/kpi-results.png",
+    alt: "Retail business KPI results",
+    title: "Business KPI Results",
+  },
+  {
+    src: "/images/retail-inventory/inventory-analysis.png",
+    alt: "Retail inventory analysis",
+    title: "Inventory Analysis",
+  },
+  {
+    src: "/images/retail-inventory/dashboard.png",
+    alt: "Retail Intelligence analytics dashboard",
+    title: "Analytics Dashboard",
+  },
+];
+
 export default function Projects() {
+  const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+
+  function toggleProject(title: string) {
+    setExpandedProjects((current) =>
+      current.includes(title)
+        ? current.filter((item) => item !== title)
+        : [...current, title]
+    );
+  }
+
   return (
     <section
       id="projects"
       className="border-t border-[#1E293B] px-5 py-14 sm:px-6 sm:py-16 md:py-20"
     >
       <div className="mx-auto max-w-6xl">
-
         {/* Section heading */}
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2DD4BF] sm:text-sm sm:tracking-[0.2em]">
@@ -15,7 +46,7 @@ export default function Projects() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Projects That Combine Data & Engineering
+            Projects That Combine Data &amp; Engineering
           </h2>
 
           <p className="mt-4 text-sm leading-7 text-slate-400 sm:mt-5 sm:text-base">
@@ -27,127 +58,207 @@ export default function Projects() {
 
         {/* Projects */}
         <div className="mt-8 space-y-5 sm:mt-10 sm:space-y-6">
+          {projects.map((project, index) => {
+            const isRetailProject =
+              project.title === "Retail Intelligence Platform";
 
-          {projects.map((project, index) => (
-            <article
-              key={project.title}
-              className={`group rounded-2xl border border-[#1E293B] bg-[#0D1726]/70 p-5 transition duration-300 hover:border-[#2DD4BF]/40 hover:bg-[#0D1726] sm:p-6 ${
-                index === 0 ? "md:p-10" : "md:p-8"
-              }`}
-            >
+            const isExpanded = expandedProjects.includes(project.title);
 
-              {/* Project layout */}
-              <div className="grid gap-7 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
-
-                {/* Main information */}
-                <div>
-
-                  {/* Category + featured */}
-                  <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#2DD4BF] sm:text-xs sm:tracking-[0.18em]">
-                      {project.category}
-                    </span>
-
-                    {project.featured && (
-                      <span className="rounded-full border border-[#2DD4BF]/30 bg-[#2DD4BF]/10 px-2.5 py-1 text-[10px] font-medium text-[#2DD4BF] sm:px-3 sm:text-xs">
-                        Featured Project
-                      </span>
-                    )}
-
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
-                    {project.description}
-                  </p>
-
-                  {/* Challenge */}
-                  <div className="mt-6 sm:mt-7">
-
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
-                      The Challenge
-                    </p>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-400">
-                      {project.problem}
-                    </p>
-
-                  </div>
-
-                  {/* Approach */}
-                  <div className="mt-5">
-
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
-                      My Approach
-                    </p>
-
-                    <p className="mt-2 text-sm leading-6 text-slate-400">
-                      {project.solution}
-                    </p>
-
-                  </div>
-
-                </div>
-
-                {/* Technologies + outcomes */}
-                <div>
-
-                  {/* Technologies */}
+            return (
+              <article
+                key={project.title}
+                className={`group rounded-2xl border border-[#1E293B] bg-[#0D1726]/70 p-5 transition duration-300 hover:border-[#2DD4BF]/40 hover:bg-[#0D1726] sm:p-6 ${
+                  index === 0 ? "md:p-10" : "md:p-8"
+                }`}
+              >
+                {/* Existing project layout */}
+                <div className="grid gap-7 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
+                  {/* Main information */}
                   <div>
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[#2DD4BF] sm:text-xs sm:tracking-[0.18em]">
+                        {project.category}
+                      </span>
 
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
-                      Technologies
-                    </p>
-
-                    <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">
-                      {project.technologies.map((technology) => (
-                        <span
-                          key={technology}
-                          className="rounded-lg border border-[#1E293B] bg-[#08111F] px-2.5 py-1.5 text-[11px] font-medium text-slate-300 transition group-hover:border-[#334155] sm:px-3 sm:py-2 sm:text-xs"
-                        >
-                          {technology}
+                      {project.featured && (
+                        <span className="rounded-full border border-[#2DD4BF]/30 bg-[#2DD4BF]/10 px-2.5 py-1 text-[10px] font-medium text-[#2DD4BF] sm:px-3 sm:text-xs">
+                          Featured Project
                         </span>
-                      ))}
+                      )}
                     </div>
 
-                  </div>
+                    <h3 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
+                      {project.title}
+                    </h3>
 
-                  {/* Outcomes */}
-                  <div className="mt-7 sm:mt-8">
-
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
-                      Key Outcomes
+                    <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">
+                      {project.description}
                     </p>
 
-                    <ul className="mt-3 space-y-3 sm:mt-4">
-                      {project.outcomes.map((outcome) => (
-                        <li
-                          key={outcome}
-                          className="flex gap-3 text-sm leading-6 text-slate-400"
-                        >
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2DD4BF]" />
-                          <span>{outcome}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Challenge */}
+                    <div className="mt-6 sm:mt-7">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
+                        The Challenge
+                      </p>
 
+                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                        {project.problem}
+                      </p>
+                    </div>
+
+                    {/* Approach */}
+                    <div className="mt-5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
+                        My Approach
+                      </p>
+
+                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                        {project.solution}
+                      </p>
+                    </div>
                   </div>
 
+                  {/* Technologies and outcomes */}
+                  <div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
+                        Technologies
+                      </p>
+
+                      <div className="mt-3 flex flex-wrap gap-2 sm:mt-4">
+                        {project.technologies.map((technology) => (
+                          <span
+                            key={technology}
+                            className="rounded-lg border border-[#1E293B] bg-[#08111F] px-2.5 py-1.5 text-[11px] font-medium text-slate-300 transition group-hover:border-[#334155] sm:px-3 sm:py-2 sm:text-xs"
+                          >
+                            {technology}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Outcomes */}
+                    <div className="mt-7 sm:mt-8">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-xs sm:tracking-[0.15em]">
+                        Key Outcomes
+                      </p>
+
+                      <ul className="mt-3 space-y-3 sm:mt-4">
+                        {project.outcomes.map((outcome) => (
+                          <li
+                            key={outcome}
+                            className="flex gap-3 text-sm leading-6 text-slate-400"
+                          >
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2DD4BF]" />
+                            <span>{outcome}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
-              </div>
+                {/* Retail-only interactive preview */}
+                {isRetailProject && (
+                  <div className="mt-6 border-t border-[#1E293B] pt-5">
+                    <button
+                      type="button"
+                      onClick={() => toggleProject(project.title)}
+                      aria-expanded={isExpanded}
+                      aria-controls="retail-dashboard-previews"
+                      className="flex w-full items-center justify-between gap-4 rounded-lg py-2 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      <span className="text-sm font-semibold text-[#2DD4BF]">
+                        {isExpanded
+                          ? "Hide dashboard previews"
+                          : "Explore dashboards & results"}
+                      </span>
 
-            </article>
-          ))}
+                      <span
+                        aria-hidden="true"
+                        className={`text-xl text-[#2DD4BF] transition-transform duration-300 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      >
+                        ↓
+                      </span>
+                    </button>
 
+                    <div
+                      id="retail-dashboard-previews"
+                      aria-hidden={!isExpanded}
+                      inert={!isExpanded}
+                      className={`grid grid-cols-1 gap-4 overflow-hidden transition-all duration-500 ease-in-out sm:grid-cols-2 lg:grid-cols-3 ${
+                        isExpanded
+                          ? "mt-5 max-h-[2000px] translate-y-0 opacity-100"
+                          : "pointer-events-none mt-0 max-h-0 -translate-y-2 opacity-0"
+                      }`}
+                    >
+                      {retailScreenshots.map((screenshot) => (
+                        <div
+                          key={screenshot.src}
+                          className="min-w-0 overflow-hidden rounded-xl border border-[#1E293B] bg-[#08111F]"
+                        >
+                          <a
+                            href={screenshot.src}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${screenshot.title} image in a new tab`}
+                            tabIndex={isExpanded ? 0 : -1}
+                            className="block overflow-hidden"
+                          >
+                            <img
+                              src={screenshot.src}
+                              alt={screenshot.alt}
+                              loading="lazy"
+                              className="aspect-[4/3] w-full object-contain transition duration-500 hover:scale-[1.03]"
+                            />
+                          </a>
+
+                          <p className="px-3 py-3 text-xs font-medium text-slate-300 sm:text-sm">
+                            {screenshot.title}
+                          </p>
+                        </div>
+                      ))}
+
+                      {/* Business results */}
+                      <div className="rounded-xl border border-[#1E293B] bg-[#08111F] p-4 sm:col-span-2 lg:col-span-3">
+                        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#2DD4BF]">
+                          Selected Business Results
+                        </p>
+
+                        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                          <div>
+                            <p className="text-xs text-slate-500">
+                              Sales before returns
+                            </p>
+                            <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
+                              11.22M
+                            </p>
+                          </div>
+
+                          <div>
+                            <p className="text-xs text-slate-500">
+                              Net sales
+                            </p>
+                            <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
+                              10.48M
+                            </p>
+                          </div>
+                        </div>
+
+                        <p className="mt-4 text-xs leading-5 text-slate-500">
+                          Based on the analysed dataset. Currency is not
+                          specified; values are rounded for display.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );
