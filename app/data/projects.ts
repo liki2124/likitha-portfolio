@@ -34,7 +34,7 @@ export const projects = [
     category: "AI / Machine Learning",
 
     description:
-      "An academic machine learning project analysing a large collection of customer reviews to understand sentiment and extract useful information from unstructured text.",
+      "An end-to-end customer review analytics project using Python, NLP and machine learning to analyse 100K+ customer reviews, evaluate sentiment patterns, compare negative feedback across product categories and identify recurring customer complaints to support data-driven business decisions.",
 
     problem:
       "Customer reviews contain valuable information about customer experience, but analysing thousands of text-based reviews manually is inefficient.",
