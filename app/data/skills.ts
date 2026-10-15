@@ -1,8 +1,9 @@
+
 export const skills = [
   {
-    category: "Data & Analytics",
+    category: "Data Analytics & BI",
     description:
-      "Turning business and operational data into reliable insights, dashboards and analytical solutions.",
+      "Analysing business data, building dashboards and translating results into actionable insights.",
     skills: [
       "Python",
       "SQL",
@@ -15,11 +16,10 @@ export const skills = [
       "Business Analysis",
     ],
   },
-
   {
     category: "Data Engineering",
     description:
-      "Building and working with data workflows, transformations and analytics-ready datasets.",
+      "Preparing analytics-ready datasets and supporting reliable data transformation and workflow automation.",
     skills: [
       "ETL / ELT",
       "Data Pipelines",
@@ -30,26 +30,23 @@ export const skills = [
       "Snowflake",
     ],
   },
-
   {
-    category: "AI / Machine Learning",
+    category: "AI & Machine Learning",
     description:
-      "Applying machine learning and analytical techniques to predictive and unstructured data problems.",
+      "Applying machine learning and natural language processing to predictive modelling and unstructured data.",
     skills: [
       "Scikit-learn",
-      "PyTorch",
       "NLP",
-      "Time Series",
+      "Time Series Analysis",
       "XGBoost",
       "Predictive Analytics",
       "GenAI / LLM",
     ],
   },
-
   {
-    category: "Cloud & DevOps",
+    category: "Cloud, DevOps & Automation",
     description:
-      "Cloud infrastructure, automation and deployment practices developed through software and infrastructure engineering.",
+      "Supporting cloud infrastructure, deployment automation, containerised applications and monitoring.",
     skills: [
       "Azure",
       "AWS",

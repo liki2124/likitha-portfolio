@@ -6,14 +6,14 @@ export const professionalExperience = [
     location: "India / Client: Copenhagen, Denmark",
 
     description:
-      "Worked across software engineering, cloud infrastructure and DevOps, supporting automated delivery pipelines, containerised applications and cloud environments for enterprise systems.",
+      "Worked across software engineering, cloud infrastructure and DevOps for enterprise systems, with a focus on deployment automation, containerised applications and reliable cloud environments.",
 
     highlights: [
       "Built and maintained CI/CD workflows using GitLab and Jenkins.",
-      "Worked with Docker and Kubernetes to support containerised application deployments.",
-      "Used Terraform for infrastructure automation and Azure for cloud environments.",
-      "Supported monitoring and operational visibility using Grafana and Vault.",
-      "Improved deployment efficiency, infrastructure reliability and operational consistency.",
+  "Worked with Docker and Kubernetes to support containerised application deployments.",
+  "Used Terraform for infrastructure automation and Azure for cloud environments.",
+  "Supported monitoring and operational visibility using Grafana and Vault.",
+  "Contributed to repeatable deployments and consistent infrastructure operations.",
     ],
 
     technologies: [
@@ -35,12 +35,12 @@ export const professionalExperience = [
     location: "Remote",
 
     description:
-      "Worked across data and infrastructure engineering in a startup environment, combining analytical workflows with cloud infrastructure and deployment practices.",
+      "Worked in a startup environment across data-related workflows and infrastructure engineering, connecting analytical requirements with cloud and deployment practices.",
 
     highlights: [
       "Supported data workflows and analytics-oriented engineering tasks.",
       "Worked with cloud infrastructure and containerised application environments.",
-      "Contributed to deployment automation and reliable development workflows.",
+      "Contributed to deployment automation and development workflow improvements.",
       "Connected data requirements with engineering and infrastructure solutions.",
     ],
 
@@ -61,14 +61,13 @@ export const professionalExperience = [
     location: "Ireland",
 
     description:
-      "Worked in a high-volume retail environment across sales, customer service, inventory and operational activities, while developing practical experience connecting business operations with data.",
+      "Worked in a busy retail environment across customer service, sales, checkout and inventory operations, developing a practical understanding of retail performance and day-to-day operational needs.",
 
     highlights: [
-      "Supported sales and inventory operations in a customer-facing retail environment.",
-      "Worked with sales, stock availability and customer-related data to understand operational performance.",
-      "Supported stock transfer and inventory management processes across teams.",
-      "Used Excel, reporting and analytical approaches to identify operational patterns and improvement opportunities.",
-      "Collaborated with different teams to solve customer, stock and operational issues.",
+      "Supported customers, checkout activities, returns and day-to-day store operations.",
+  "Helped maintain stock availability and supported inventory and stock-transfer processes.",
+  "Developed practical insight into sales performance, customer needs and retail operations.",
+  "Collaborated with colleagues to resolve customer, stock and operational issues.",
     ],
 
     technologies: [

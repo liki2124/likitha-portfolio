@@ -1,3 +1,4 @@
+
 export const highlights = [
   {
     value: "First Class",
@@ -7,16 +8,16 @@ export const highlights = [
   {
     value: "4+ Years",
     label: "Engineering & Technology",
-    description: "Data · Software · Cloud · DevOps",
+    description: "Software · Data · Cloud · DevOps",
   },
   {
     value: "100K+",
     label: "Reviews Analysed",
-    description: "Machine learning & NLP project",
+    description: "Customer review analytics project",
   },
   {
-    value: "Cloud + DevOps",
-    label: "Engineering Stack",
-    description: "Azure · Kubernetes · Terraform · CI/CD",
+    value: "Data + Cloud",
+    label: "Professional Focus",
+    description: "Analytics · Infrastructure · Automation",
   },
 ];

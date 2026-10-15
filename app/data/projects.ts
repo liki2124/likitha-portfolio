@@ -1,90 +1,88 @@
+
 export const projects = [
   {
     title: "Retail Intelligence Platform",
-    category: "Data Engineering & Analytics",
+    category: "Retail Analytics & Data Engineering",
     featured: true,
 
     description:
-      "A practical retail analytics project focused on turning sales, inventory and customer data into insights that can support commercial and operational decisions.",
+      "A retail analytics case study using sales, returns, cost and inventory data to evaluate commercial performance, understand stock composition and identify opportunities for better inventory decisions.",
 
     problem:
-      "Retail operations generate large amounts of sales and stock data, but meaningful trends and operational issues can be difficult to identify without structured analysis.",
+      "Retail teams need to understand how sales, returns, costs, markdowns and stock levels affect business performance. Without structured analysis, it can be difficult to identify inventory risks and prioritise operational improvements.",
 
     solution:
-      "Worked with Python, SQL and analytical tools to explore, transform and analyse retail data, with a focus on sales performance, inventory visibility and business KPIs.",
+      "Used Python, Pandas, SQL and spreadsheet-based analysis to explore retail data, calculate business KPIs and compare inventory performance. Focused on net sales, returns, cost of goods sold, stock value, markdowns and inventory composition to turn raw data into decision-support insights.",
 
     technologies: [
       "Python",
       "SQL",
       "Pandas",
-      "Power BI",
       "Excel",
-      "Data Analytics",
+      "Power BI",
+      "Retail Analytics",
+      "KPI Analysis",
     ],
 
     outcomes: [
-      "Analysed sales and inventory performance",
-      "Developed KPI-focused analytical views",
-      "Identified patterns to support operational decisions",
+      "Calculated sales, returns and net-sales KPIs",
+      "Examined inventory mix, stock value and markdown performance",
+      "Identified patterns and potential overstock indicators to support business decisions",
     ],
   },
-
   {
     title: "AI Customer Review Intelligence",
-    category: "AI / Machine Learning",
-
+    category: "NLP & Machine Learning",
     description:
-      "An end-to-end customer review analytics project using Python, NLP and machine learning to analyse 100K+ customer reviews, evaluate sentiment patterns, compare negative feedback across product categories and identify recurring customer complaints to support data-driven business decisions.",
-
+      "An end-to-end customer review analytics project analysing 100K+ reviews with Python, natural language processing and machine learning to explore sentiment, compare negative feedback across product categories and surface recurring customer concerns.",
     problem:
-      "Customer reviews contain valuable information about customer experience, but analysing thousands of text-based reviews manually is inefficient.",
+      "Large volumes of customer reviews contain useful feedback about product quality, reliability, value and customer service, but manual review is inefficient and makes recurring themes difficult to compare at scale.",
 
     solution:
-      "Built a Python-based machine learning workflow involving data preprocessing, feature engineering and model evaluation. Explored NLP techniques and compared machine learning approaches including ensemble models.",
+      "Developed a Python-based workflow for data preparation, text analysis, feature engineering and machine learning experimentation. Analysed sentiment patterns and recurring complaint themes, compared model approaches and organised findings by product category to support customer-experience analysis.",
 
     technologies: [
       "Python",
+      "Pandas",
       "NLP",
       "Scikit-learn",
       "XGBoost",
-      "PyTorch",
-      "Predictive Analytics",
+      "Machine Learning",
+      "Sentiment Analysis",
     ],
 
     outcomes: [
       "Analysed 100K+ customer reviews",
-      "Improved predictive performance through model experimentation",
-      "Extracted sentiment-based insights from unstructured data",
+      "Compared negative-feedback themes across product categories",
+      "Organised recurring complaints into business-relevant themes",
     ],
   },
-
   {
     title: "Cloud & DevOps Platform",
-    category: "Cloud & DevOps",
-
+    category: "Cloud Infrastructure & DevOps",
     description:
-      "A cloud and DevOps engineering project focused on improving application deployment, infrastructure automation and operational visibility.",
+      "A hands-on cloud and DevOps platform project exploring containerised application deployment, infrastructure automation and observability through a practical engineering workflow.",
 
     problem:
-      "Manual deployment and infrastructure processes can introduce configuration errors, slow down releases and make environments harder to maintain.",
+      "Inconsistent deployment steps and manually managed infrastructure can increase configuration risk, complicate environment setup and make application behaviour harder to monitor.",
 
     solution:
-      "Worked with containerisation, infrastructure-as-code and CI/CD practices using Docker, Kubernetes, Terraform and cloud platforms. Monitoring and observability were supported through tools such as Grafana.",
+      "Developed a containerised application workflow using Docker and Python, with the project extending into infrastructure-as-code, Kubernetes orchestration and monitoring. The focus is on repeatable deployments, maintainable infrastructure and improved operational visibility as the platform evolves.",
 
     technologies: [
-      "Azure",
+      "Python",
       "Docker",
       "Kubernetes",
       "Terraform",
-      "Jenkins",
+      "Azure",
+      "Prometheus",
       "Grafana",
       "CI/CD",
     ],
-
     outcomes: [
-      "Automated deployment workflows",
-      "Improved infrastructure consistency",
-      "Supported application monitoring and observability",
+      "Built a containerised application workflow",
+      "Developing infrastructure automation and orchestration capabilities",
+      "Extending monitoring and observability with Prometheus and Grafana",
     ],
   },
 ];
