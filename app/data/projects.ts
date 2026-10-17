@@ -33,6 +33,33 @@ export const projects = [
     ],
   },
   {
+    title: "AI Customer Review Intelligence",
+    category: "NLP & Machine Learning",
+    description:
+      "An end-to-end customer review analytics project analysing 60K+ reviews with Python, natural language processing and machine learning to explore sentiment, compare negative feedback across product categories and surface recurring customer concerns.",
+
+    problem:
+      "Large volumes of customer reviews contain useful feedback about product quality, reliability, value and customer service, but manual review is inefficient and makes recurring themes difficult to compare at scale.",
+
+    solution:
+      "Developed a Python-based workflow for data preparation, text analysis, feature engineering and machine learning experimentation. Analysed sentiment patterns and recurring complaint themes, compared model approaches and organised findings by product category to support customer-experience analysis.",
+
+    technologies: [
+      "Python",
+      "Pandas",
+      "NLP",
+      "Scikit-learn",
+      "XGBoost",
+      "Machine Learning",
+      "Sentiment Analysis",
+    ],
+
+    outcomes: [
+      "Analysed more than 60,000 customer reviews",
+      "Compared negative-feedback themes across product categories",
+      "Organised recurring complaints into business-relevant themes",
+    ],
+  },  {
     title: "Cloud & DevOps Platform",
     category: "Cloud Infrastructure & DevOps",
     description:
