@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { projects } from "../data/projects";
@@ -18,6 +18,29 @@ const retailScreenshots = [
     src: "/images/retail-inventory/dashboard.png",
     alt: "Retail Intelligence analytics dashboard",
     title: "Analytics Dashboard",
+  },
+];
+
+const retailLiveScreenshots = [
+  {
+    src: "/images/retail-intelligence-platform/dashboard_overview.png",
+    alt: "Retail Intelligence Platform dashboard overview",
+    title: "Dashboard Overview",
+  },
+  {
+    src: "/images/retail-intelligence-platform/historical_indicator.png",
+    alt: "Historical retail data indicators",
+    title: "Historical Indicators",
+  },
+  {
+    src: "/images/retail-intelligence-platform/pricing_analysis.png",
+    alt: "Retail pricing analysis and review indicators",
+    title: "Pricing Analysis",
+  },
+  {
+    src: "/images/retail-intelligence-platform/data_explorer.png",
+    alt: "Interactive retail data explorer",
+    title: "Data Explorer",
   },
 ];
 
@@ -199,7 +222,7 @@ export default function Projects() {
                           isExpanded ? "rotate-180" : ""
                         }`}
                       >
-                        ↓
+                        â†“
                       </span>
                     </button>
 
@@ -241,63 +264,177 @@ export default function Projects() {
                       ))}
 
                       {/* Business results */}
+
+                      {/* Business results */}
                       <div className="rounded-xl border border-[#1E293B] bg-[#08111F] p-4 sm:col-span-2 lg:col-span-3">
                         <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#2DD4BF]">
-                          Selected Business Results
+                          Data Quality &amp; Review Indicators
                         </p>
 
                         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                           <div>
                             <p className="text-xs text-slate-500">
-                              Sales before returns
+                              Historical records analysed
                             </p>
                             <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
-                              11.22M
+                              75,996
                             </p>
                           </div>
 
                           <div>
                             <p className="text-xs text-slate-500">
-                              Net sales
+                              Records matching review rules
                             </p>
                             <p className="mt-1 text-xl font-bold text-white sm:text-2xl">
-                              10.48M
+                              17,812
                             </p>
                           </div>
                         </div>
 
                         <p className="mt-4 text-xs leading-5 text-slate-500">
-                          Based on the analysed dataset. Currency is not
-                          specified; values are rounded for display.
+                          Review rules identify records for further investigation;
+                          flagged records are not necessarily confirmed data or pricing errors.
                         </p>
                       </div>
                     </div>
                   </div>
                 )}
-{/* AI project resource links */}
-{isAIReviewProject && (
-  <div className="mt-6 flex flex-wrap gap-3">
-    <a
-      href="https://liki2124.streamlit.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg bg-[#2DD4BF] px-4 py-2.5 text-sm font-semibold text-[#08111F] transition hover:bg-[#5EEAD4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
-    >
-      Live Dashboard
-      <span aria-hidden="true">↗</span>
-    </a>
 
-    <a
-      href="https://github.com/liki2124/AI-Customer-Review-Intelligence"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg border border-[#334155] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-[#2DD4BF] hover:text-[#2DD4BF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
-    >
-      GitHub Repository
-      <span aria-hidden="true">↗</span>
-    </a>
-  </div>
-)}
+                {/* Retail live dashboard screenshot gallery */}
+                {isRetailProject && (
+                  <div className="mt-5 border-t border-[#1E293B] pt-5">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        toggleProject(`${project.title}-live-gallery`)
+                      }
+                      aria-expanded={expandedProjects.includes(
+                        `${project.title}-live-gallery`
+                      )}
+                      aria-controls="retail-live-dashboard-previews"
+                      className="flex w-full items-center justify-between gap-4 rounded-lg py-2 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      <span className="text-sm font-semibold text-[#2DD4BF]">
+                        {expandedProjects.includes(
+                          `${project.title}-live-gallery`
+                        )
+                          ? "Hide live dashboard screenshots"
+                          : "View live dashboard screenshots"}
+                      </span>
+                      <span aria-hidden="true" className="text-xl text-[#2DD4BF]">
+                        {expandedProjects.includes(
+                          `${project.title}-live-gallery`
+                        )
+                          ? "−"
+                          : "+"}
+                      </span>
+                    </button>
+
+                    <div
+                      id="retail-live-dashboard-previews"
+                      aria-hidden={
+                        !expandedProjects.includes(
+                          `${project.title}-live-gallery`
+                        )
+                      }
+                      inert={
+                        !expandedProjects.includes(
+                          `${project.title}-live-gallery`
+                        )
+                      }
+                      className={`grid grid-cols-1 gap-4 overflow-hidden transition-all duration-500 ease-in-out sm:grid-cols-2 lg:grid-cols-4 ${
+                        expandedProjects.includes(
+                          `${project.title}-live-gallery`
+                        )
+                          ? "mt-5 max-h-[2000px] opacity-100"
+                          : "pointer-events-none mt-0 max-h-0 opacity-0"
+                      }`}
+                    >
+                      {retailLiveScreenshots.map((screenshot) => (
+                        <div
+                          key={screenshot.src}
+                          className="min-w-0 overflow-hidden rounded-xl border border-[#1E293B] bg-[#08111F]"
+                        >
+                          <a
+                            href={screenshot.src}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${screenshot.title} image in a new tab`}
+                            tabIndex={
+                              expandedProjects.includes(
+                                `${project.title}-live-gallery`
+                              )
+                                ? 0
+                                : -1
+                            }
+                            className="block overflow-hidden"
+                          >
+                            <img
+                              src={screenshot.src}
+                              alt={screenshot.alt}
+                              loading="lazy"
+                              className="aspect-[4/3] w-full object-contain transition duration-500 hover:scale-[1.03]"
+                            />
+                          </a>
+                          <p className="px-3 py-3 text-xs font-medium text-slate-300 sm:text-sm">
+                            {screenshot.title}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Retail Intelligence project resource links */}
+                {isRetailProject && (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href="https://liki2124-retail-intelligence-platform-app-idlzfp.streamlit.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#2DD4BF] px-4 py-2.5 text-sm font-semibold text-[#08111F] transition hover:bg-[#5EEAD4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      Live Dashboard
+                      <span aria-hidden="true">â†—</span>
+                    </a>
+
+                    <a
+                      href="https://github.com/liki2124/Retail-Intelligence-Platform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-[#334155] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-[#2DD4BF] hover:text-[#2DD4BF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      GitHub Repository
+                      <span aria-hidden="true">â†—</span>
+                    </a>
+                  </div>
+                )}
+
+                {/* AI project resource links */}
+                {isAIReviewProject && (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href="https://liki2124.streamlit.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-[#2DD4BF] px-4 py-2.5 text-sm font-semibold text-[#08111F] transition hover:bg-[#5EEAD4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      Live Dashboard
+                      <span aria-hidden="true">â†—</span>
+                    </a>
+
+                    <a
+                      href="https://github.com/liki2124/AI-Customer-Review-Intelligence"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-[#334155] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-[#2DD4BF] hover:text-[#2DD4BF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      GitHub Repository
+                      <span aria-hidden="true">â†—</span>
+                    </a>
+                  </div>
+                )}
+
               {/* AI Customer Review interactive preview */}
 {isAIReviewProject && (
   <div className="mt-6 border-t border-[#1E293B] pt-5">
@@ -320,7 +457,7 @@ export default function Projects() {
           isExpanded ? "rotate-180" : ""
         }`}
       >
-        ↓
+        â†“
       </span>
     </button>
 
@@ -414,3 +551,5 @@ export default function Projects() {
     </section>
   );
 }
+
+

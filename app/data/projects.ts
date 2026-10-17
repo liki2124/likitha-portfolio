@@ -6,55 +6,30 @@ export const projects = [
     featured: true,
 
     description:
-      "A retail analytics case study using sales, returns, cost and inventory data to evaluate commercial performance, understand stock composition and identify opportunities for better inventory decisions.",
+      "An interactive retail analytics platform that transforms product and historical sales records into structured business insights. The dashboard combines data preparation, SQL analysis, pricing-quality review indicators and interactive visualisation.",
 
     problem:
-      "Retail teams need to understand how sales, returns, costs, markdowns and stock levels affect business performance. Without structured analysis, it can be difficult to identify inventory risks and prioritise operational improvements.",
+      "Retail datasets can contain inconsistent records and pricing patterns that require investigation. Teams need a structured way to explore historical sales indicators, compare product attributes and identify records that may warrant further review.",
 
     solution:
-      "Used Python, Pandas, SQL and spreadsheet-based analysis to explore retail data, calculate business KPIs and compare inventory performance. Focused on net sales, returns, cost of goods sold, stock value, markdowns and inventory composition to turn raw data into decision-support insights.",
+      "Built a Python and Pandas data pipeline to clean and prepare retail records, stored analytical tables in SQLite, and developed SQL analyses for sales performance, marketing, pricing and release-year patterns. Created a Streamlit dashboard with Plotly visualisations, interactive filters and downloadable data. Added six pricing-review flags to help prioritise records for investigation; these flags are indicators, not confirmed errors.",
 
     technologies: [
       "Python",
+      "Pandas",
       "SQL",
-      "Pandas",
-      "Excel",
-      "Power BI",
+      "SQLite",
+      "Streamlit",
+      "Plotly",
+      "Data Quality",
       "Retail Analytics",
-      "KPI Analysis",
     ],
 
     outcomes: [
-      "Calculated sales, returns and net-sales KPIs",
-      "Examined inventory mix, stock value and markdown performance",
-      "Identified patterns and potential overstock indicators to support business decisions",
-    ],
-  },
-  {
-    title: "AI Customer Review Intelligence",
-    category: "NLP & Machine Learning",
-    description:
-      "An end-to-end customer review analytics project analysing 100K+ reviews with Python, natural language processing and machine learning to explore sentiment, compare negative feedback across product categories and surface recurring customer concerns.",
-    problem:
-      "Large volumes of customer reviews contain useful feedback about product quality, reliability, value and customer service, but manual review is inefficient and makes recurring themes difficult to compare at scale.",
-
-    solution:
-      "Developed a Python-based workflow for data preparation, text analysis, feature engineering and machine learning experimentation. Analysed sentiment patterns and recurring complaint themes, compared model approaches and organised findings by product category to support customer-experience analysis.",
-
-    technologies: [
-      "Python",
-      "Pandas",
-      "NLP",
-      "Scikit-learn",
-      "XGBoost",
-      "Machine Learning",
-      "Sentiment Analysis",
-    ],
-
-    outcomes: [
-      "Analysed 100K+ customer reviews",
-      "Compared negative-feedback themes across product categories",
-      "Organised recurring complaints into business-relevant themes",
+      "Processed and organised retail records into analysis-ready datasets",
+      "Developed five SQL analyses covering sales, marketing, pricing, release-year patterns and pricing-review flags",
+      "Built an interactive dashboard with filters, visualisations and CSV export",
+      "Identified records matching one or more pricing-review rules for further investigation",
     ],
   },
   {
