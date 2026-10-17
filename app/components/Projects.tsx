@@ -274,6 +274,30 @@ export default function Projects() {
                     </div>
                   </div>
                 )}
+{/* AI project resource links */}
+{isAIReviewProject && (
+  <div className="mt-6 flex flex-wrap gap-3">
+    <a
+      href="https://liki2124.streamlit.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-lg bg-[#2DD4BF] px-4 py-2.5 text-sm font-semibold text-[#08111F] transition hover:bg-[#5EEAD4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+    >
+      Live Dashboard
+      <span aria-hidden="true">↗</span>
+    </a>
+
+    <a
+      href="https://github.com/liki2124/AI-Customer-Review-Intelligence"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 rounded-lg border border-[#334155] px-4 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-[#2DD4BF] hover:text-[#2DD4BF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+    >
+      GitHub Repository
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+)}
               {/* AI Customer Review interactive preview */}
 {isAIReviewProject && (
   <div className="mt-6 border-t border-[#1E293B] pt-5">
