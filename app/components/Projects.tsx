@@ -88,6 +88,7 @@ const cloudDevOpsScreenshots = [
 
 export default function Projects() {
   const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+  const [cloudDashboardTab, setCloudDashboardTab] = useState<"overview" | "kubernetes" | "monitoring">("overview");
 
   function toggleProject(title: string) {
     setExpandedProjects((current) =>
@@ -411,7 +412,201 @@ export default function Projects() {
                   </div>
                 )}
 
-                {/* Cloud & DevOps monitoring screenshot gallery */}
+                {/* Interactive Cloud & DevOps portfolio dashboard */}
+                {isCloudDevOpsProject && (
+                  <div className="mt-6 overflow-hidden rounded-2xl border border-[#263449] bg-[#08111F]">
+                    <div className="border-b border-[#263449] p-5 sm:p-6">
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2DD4BF]">
+                            Platform observability
+                          </p>
+                          <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
+                            Cloud Operations Console
+                          </h3>
+                        </div>
+                        <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1.5 text-xs font-medium text-amber-200">
+                          Demo snapshot
+                        </span>
+                      </div>
+
+                      <p className="mt-3 text-sm leading-6 text-slate-400">
+                        An interactive portfolio view of the API, Kubernetes deployment,
+                        and monitoring stack. Metrics below are illustrative and are not
+                        live telemetry from the local environment.
+                      </p>
+
+                      <div className="mt-5 flex flex-wrap gap-2" role="tablist" aria-label="Cloud operations views">
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={cloudDashboardTab === "overview"}
+                          onClick={() => setCloudDashboardTab("overview")}
+                          className={`rounded-lg px-4 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2DD4BF] ${
+                            cloudDashboardTab === "overview"
+                              ? "bg-[#2DD4BF] text-[#08111F]"
+                              : "border border-[#263449] text-slate-300 hover:border-[#2DD4BF]"
+                          }`}
+                        >
+                          Overview
+                        </button>
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={cloudDashboardTab === "kubernetes"}
+                          onClick={() => setCloudDashboardTab("kubernetes")}
+                          className={`rounded-lg px-4 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2DD4BF] ${
+                            cloudDashboardTab === "kubernetes"
+                              ? "bg-[#2DD4BF] text-[#08111F]"
+                              : "border border-[#263449] text-slate-300 hover:border-[#2DD4BF]"
+                          }`}
+                        >
+                          Kubernetes
+                        </button>
+                        <button
+                          type="button"
+                          role="tab"
+                          aria-selected={cloudDashboardTab === "monitoring"}
+                          onClick={() => setCloudDashboardTab("monitoring")}
+                          className={`rounded-lg px-4 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2DD4BF] ${
+                            cloudDashboardTab === "monitoring"
+                              ? "bg-[#2DD4BF] text-[#08111F]"
+                              : "border border-[#263449] text-slate-300 hover:border-[#2DD4BF]"
+                          }`}
+                        >
+                          Monitoring
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="p-5 sm:p-6">
+                      {cloudDashboardTab === "overview" && (
+                        <div role="tabpanel" aria-label="Overview">
+                          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <p className="text-xs text-slate-400">Request rate</p>
+                              <p className="mt-2 text-2xl font-bold text-white">24.8 <span className="text-sm font-medium text-slate-400">req/s</span></p>
+                              <p className="mt-2 text-xs text-slate-500">Illustrative sample</p>
+                            </div>
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <p className="text-xs text-slate-400">API latency (p95)</p>
+                              <p className="mt-2 text-2xl font-bold text-white">182 <span className="text-sm font-medium text-slate-400">ms</span></p>
+                              <p className="mt-2 text-xs text-slate-500">Illustrative sample</p>
+                            </div>
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <p className="text-xs text-slate-400">HTTP error rate</p>
+                              <p className="mt-2 text-2xl font-bold text-white">0.4<span className="text-sm font-medium text-slate-400">%</span></p>
+                              <p className="mt-2 text-xs text-slate-500">Illustrative sample</p>
+                            </div>
+                          </div>
+
+                          <div className="mt-5 rounded-xl border border-[#263449] p-4 sm:p-5">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                              <h4 className="font-semibold text-white">Request activity</h4>
+                              <span className="text-xs text-slate-500">Example distribution · not live data</span>
+                            </div>
+                            <div className="mt-5 flex h-28 items-end gap-2" aria-label="Illustrative request activity bar chart">
+                              {[35, 52, 43, 68, 56, 78, 61, 88, 72, 94, 65, 80].map((height, index) => (
+                                <div key={index} className="flex h-full flex-1 items-end">
+                                  <div
+                                    className="w-full rounded-t-sm bg-[#2DD4BF]/80 transition-colors hover:bg-[#5EEAD4]"
+                                    style={{ height: `${height}%` }}
+                                    title={`Illustrative activity sample ${index + 1}`}
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                            <div className="mt-2 flex justify-between text-xs text-slate-500">
+                              <span>Sample start</span>
+                              <span>Sample end</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {cloudDashboardTab === "kubernetes" && (
+                        <div role="tabpanel" aria-label="Kubernetes">
+                          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <p className="text-xs text-slate-400">Workload</p>
+                              <p className="mt-2 text-lg font-bold text-white">analytics-api</p>
+                              <p className="mt-1 text-sm text-slate-400">Namespace: devops-platform</p>
+                            </div>
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <p className="text-xs text-slate-400">Replica configuration</p>
+                              <p className="mt-2 text-lg font-bold text-white">2 replicas</p>
+                              <p className="mt-1 text-sm text-slate-400">Configuration snapshot; not a live cluster check</p>
+                            </div>
+                          </div>
+
+                          <div className="mt-4 rounded-xl border border-[#263449] p-4">
+                            <h4 className="font-semibold text-white">Deployment architecture</h4>
+                            <div className="mt-4 grid grid-cols-1 items-center gap-3 sm:grid-cols-3">
+                              <div className="rounded-lg bg-slate-800/70 p-4 text-center">
+                                <p className="text-sm font-semibold text-white">API service</p>
+                                <p className="mt-1 text-xs text-slate-400">ClusterIP · port 8000</p>
+                              </div>
+                              <div className="text-center text-[#2DD4BF]" aria-hidden="true">
+                                <span className="hidden sm:inline">→</span>
+                                <span className="sm:hidden">↓</span>
+                              </div>
+                              <div className="grid grid-cols-2 gap-2">
+                                <div className="rounded-lg border border-[#2DD4BF]/30 bg-[#2DD4BF]/5 p-3 text-center">
+                                  <span className="text-xs text-slate-400">Pod 1</span>
+                                  <p className="mt-1 text-sm font-semibold text-[#2DD4BF]">Replica</p>
+                                </div>
+                                <div className="rounded-lg border border-[#2DD4BF]/30 bg-[#2DD4BF]/5 p-3 text-center">
+                                  <span className="text-xs text-slate-400">Pod 2</span>
+                                  <p className="mt-1 text-sm font-semibold text-[#2DD4BF]">Replica</p>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="mt-4 text-xs leading-5 text-slate-500">
+                              Architecture illustration. Actual pod readiness must be verified against the running cluster.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {cloudDashboardTab === "monitoring" && (
+                        <div role="tabpanel" aria-label="Monitoring">
+                          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <div className="flex items-center gap-2">
+                                <span className="h-2.5 w-2.5 rounded-full bg-[#2DD4BF]" />
+                                <h4 className="font-semibold text-white">Prometheus</h4>
+                              </div>
+                              <p className="mt-2 text-sm text-slate-400">Metrics collection and target discovery</p>
+                              <p className="mt-3 text-xs text-slate-500">See target-health screenshot below</p>
+                            </div>
+                            <div className="rounded-xl border border-[#263449] p-4">
+                              <div className="flex items-center gap-2">
+                                <span className="h-2.5 w-2.5 rounded-full bg-[#2DD4BF]" />
+                                <h4 className="font-semibold text-white">Grafana</h4>
+                              </div>
+                              <p className="mt-2 text-sm text-slate-400">API and container monitoring dashboards</p>
+                              <p className="mt-3 text-xs text-slate-500">See dashboard screenshots below</p>
+                            </div>
+                          </div>
+
+                          <div className="mt-4 rounded-xl border border-[#263449] p-4">
+                            <h4 className="font-semibold text-white">Observability coverage</h4>
+                            <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                              <li className="flex gap-2"><span className="text-[#2DD4BF]">✓</span> API request volume and latency</li>
+                              <li className="flex gap-2"><span className="text-[#2DD4BF]">✓</span> HTTP error monitoring</li>
+                              <li className="flex gap-2"><span className="text-[#2DD4BF]">✓</span> Container resource metrics</li>
+                              <li className="flex gap-2"><span className="text-[#2DD4BF]">✓</span> Prometheus alert-rule configuration</li>
+                            </ul>
+                            <p className="mt-4 text-xs leading-5 text-slate-500">
+                              Monitoring components are documented with saved screenshots. Their current availability is not checked by this public page.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+{/* Cloud & DevOps monitoring screenshot gallery */}
                 {isCloudDevOpsProject && (
                   <div className="mt-5 border-t border-[#1E293B] pt-5">
                     <button
