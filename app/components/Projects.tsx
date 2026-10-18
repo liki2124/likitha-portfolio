@@ -414,7 +414,7 @@ export default function Projects() {
                 {isAIReviewProject && (
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
-                      href="https://liki2124.streamlit.app/"
+                      href="https://ai-customer-review-intelligence-eqbb4w5msidzycscsckulc.streamlit.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-lg bg-[#2DD4BF] px-4 py-2.5 text-sm font-semibold text-[#08111F] transition hover:bg-[#5EEAD4] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
