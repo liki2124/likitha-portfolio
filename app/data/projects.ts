@@ -59,32 +59,61 @@ export const projects = [
       "Compared negative-feedback themes across product categories",
       "Organised recurring complaints into business-relevant themes",
     ],
-  },  {
+  },
+  {
     title: "Cloud & DevOps Platform",
     category: "Cloud Infrastructure & DevOps",
+    featured: true,
+
     description:
-      "A hands-on cloud and DevOps platform project exploring containerised application deployment, infrastructure automation and observability through a practical engineering workflow.",
+      "A containerised analytics platform demonstrating application deployment, Kubernetes orchestration, infrastructure automation and observability using Docker, Terraform, Prometheus and Grafana.",
 
     problem:
-      "Inconsistent deployment steps and manually managed infrastructure can increase configuration risk, complicate environment setup and make application behaviour harder to monitor.",
+      "Manual deployment steps and fragmented monitoring can make infrastructure harder to reproduce, troubleshoot and maintain. This project explores repeatable deployment workflows and centralised operational visibility.",
 
     solution:
-      "Developed a containerised application workflow using Docker and Python, with the project extending into infrastructure-as-code, Kubernetes orchestration and monitoring. The focus is on repeatable deployments, maintainable infrastructure and improved operational visibility as the platform evolves.",
+      "Containerised a Python API with Docker Compose, deployed the API to a local Kubernetes cluster using kind, and used Terraform to manage Kubernetes resources. Configured Prometheus to scrape application, container and Kubernetes API metrics, built Grafana dashboards for request volume, latency, HTTP errors, target health and container CPU usage, and added five alert rules for availability, CPU, server errors and latency.",
 
     technologies: [
       "Python",
       "Docker",
+      "Docker Compose",
       "Kubernetes",
       "Terraform",
-      "Azure",
       "Prometheus",
       "Grafana",
       "CI/CD",
     ],
+
+    images: [
+      {
+        src: "/images/cloud-devops-analytics/grafana-api-monitoring.png",
+        alt: "Grafana API monitoring dashboard",
+        caption: "API requests, latency and HTTP error monitoring",
+      },
+      {
+        src: "/images/cloud-devops-analytics/prometheus-target-health.png",
+        alt: "Prometheus target health",
+        caption: "Application, container and Kubernetes monitoring targets",
+      },
+      {
+        src: "/images/cloud-devops-analytics/grafana-container-cpu.png",
+        alt: "Grafana container CPU usage dashboard",
+        caption: "Container CPU usage from Prometheus metrics",
+      },
+      {
+        src: "/images/cloud-devops-analytics/prometheus-alert-rules.png",
+        alt: "Prometheus alert rules",
+        caption: "Availability, CPU, HTTP error and latency alert rules",
+      },
+    ],
+
     outcomes: [
-      "Built a containerised application workflow",
-      "Developing infrastructure automation and orchestration capabilities",
-      "Extending monitoring and observability with Prometheus and Grafana",
+      "Containerised the API and ran it in a local Kubernetes cluster",
+      "Managed Kubernetes resources with Terraform",
+      "Monitored API, container and Kubernetes metrics using Prometheus",
+      "Built Grafana dashboards for API performance, target health and CPU usage",
+      "Configured and validated five Prometheus alert rules",
     ],
   },
 ];

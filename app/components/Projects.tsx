@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { projects } from "../data/projects";
@@ -62,6 +62,30 @@ const aiReviewScreenshots = [
   },
 ];
 
+const cloudDevOpsScreenshots = [
+  {
+    src: "/images/cloud-devops-analytics/grafana-api-monitoring.png",
+    alt: "Grafana API monitoring dashboard",
+    title: "API Monitoring",
+  },
+  {
+    src: "/images/cloud-devops-analytics/prometheus-target-health.png",
+    alt: "Prometheus target health for application and container monitoring",
+    title: "Prometheus Target Health",
+  },
+  {
+    src: "/images/cloud-devops-analytics/grafana-container-cpu.png",
+    alt: "Grafana container CPU usage dashboard",
+    title: "Container CPU Usage",
+  },
+  {
+    src: "/images/cloud-devops-analytics/prometheus-alert-rules.png",
+    alt: "Prometheus alert rules for the Cloud and DevOps platform",
+    title: "Prometheus Alert Rules",
+  },
+];
+
+
 export default function Projects() {
   const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
 
@@ -103,6 +127,8 @@ export default function Projects() {
               project.title === "Retail Intelligence Platform";
             const isAIReviewProject =
               project.title === "AI Customer Review Intelligence";
+            const isCloudDevOpsProject =
+              project.title === "Cloud & DevOps Platform";
 
             const isExpanded = expandedProjects.includes(project.title);
 
@@ -363,6 +389,91 @@ export default function Projects() {
                             tabIndex={
                               expandedProjects.includes(
                                 `${project.title}-live-gallery`
+                              )
+                                ? 0
+                                : -1
+                            }
+                            className="block overflow-hidden"
+                          >
+                            <img
+                              src={screenshot.src}
+                              alt={screenshot.alt}
+                              loading="lazy"
+                              className="aspect-[4/3] w-full object-contain transition duration-500 hover:scale-[1.03]"
+                            />
+                          </a>
+                          <p className="px-3 py-3 text-xs font-medium text-slate-300 sm:text-sm">
+                            {screenshot.title}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Cloud & DevOps monitoring screenshot gallery */}
+                {isCloudDevOpsProject && (
+                  <div className="mt-5 border-t border-[#1E293B] pt-5">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        toggleProject(`${project.title}-cloud-gallery`)
+                      }
+                      aria-expanded={expandedProjects.includes(
+                        `${project.title}-cloud-gallery`
+                      )}
+                      aria-controls="cloud-devops-dashboard-previews"
+                      className="flex w-full items-center justify-between gap-4 rounded-lg py-2 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#2DD4BF]"
+                    >
+                      <span className="text-sm font-semibold text-[#2DD4BF]">
+                        {expandedProjects.includes(
+                          `${project.title}-cloud-gallery`
+                        )
+                          ? "Hide monitoring screenshots"
+                          : "View monitoring screenshots"}
+                      </span>
+                      <span aria-hidden="true" className="text-xl text-[#2DD4BF]">
+                        {expandedProjects.includes(
+                          `${project.title}-cloud-gallery`
+                        )
+                          ? "−"
+                          : "+"}
+                      </span>
+                    </button>
+
+                    <div
+                      id="cloud-devops-dashboard-previews"
+                      aria-hidden={
+                        !expandedProjects.includes(
+                          `${project.title}-cloud-gallery`
+                        )
+                      }
+                      inert={
+                        !expandedProjects.includes(
+                          `${project.title}-cloud-gallery`
+                        )
+                      }
+                      className={`grid grid-cols-1 gap-4 overflow-hidden transition-all duration-500 ease-in-out sm:grid-cols-2 lg:grid-cols-4 ${
+                        expandedProjects.includes(
+                          `${project.title}-cloud-gallery`
+                        )
+                          ? "mt-5 max-h-[2000px] opacity-100"
+                          : "pointer-events-none mt-0 max-h-0 opacity-0"
+                      }`}
+                    >
+                      {cloudDevOpsScreenshots.map((screenshot) => (
+                        <div
+                          key={screenshot.src}
+                          className="min-w-0 overflow-hidden rounded-xl border border-[#1E293B] bg-[#08111F]"
+                        >
+                          <a
+                            href={screenshot.src}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${screenshot.title} image in a new tab`}
+                            tabIndex={
+                              expandedProjects.includes(
+                                `${project.title}-cloud-gallery`
                               )
                                 ? 0
                                 : -1
